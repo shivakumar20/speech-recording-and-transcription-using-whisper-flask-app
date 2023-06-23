@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Recording App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: 48px;
+      color: #333333;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .button1 {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      margin-right: 40px;
+    }
+
+    .button2 {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ac1717;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .element {
+      margin-bottom: 60px;
+    }
+
+    .box {
+      display: inline-block;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      width: 800px; /* Change the width */
+      height: 300px; /* Change the height */
+      text-align: center;
+      background-color: lightgray;
+      position: relative;
+      font-size: 28px;
+    }
+
+    .box::before {
+      color: #999;
+      font-style: italic;
+      content: attr(data-placeholder);
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .box:focus::before {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Speech Recording App And Transcription Using Whisper</h1>
+    <div class="element"></div>
+    <button class="button1" onclick="startRecording();">Start Speaking</button>
+    <button class="button2" onclick="stopRecording();">Stop Speaking</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="recorded_data_whisper" class="box" contenteditable="true" data-placeholder="Transcribed text here"></div>
+  </div>
+  <!-- Need to use url_for -->
+  <script src="{{url_for('static', filename='recorder.js')}}"></script>
+  <script src="{{url_for('static', filename='app.js')}}"></script>
+</body>
+
+</html>
